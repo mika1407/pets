@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -8,12 +8,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 });
 
@@ -21,36 +22,37 @@ const useStyles = makeStyles({
 //   return <div>{text}</div>
 // }
 
-const Home = () => {
+const Home = ({pets}) => {
+
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+      pets.map((pet) => 
+    <Card className={classes.root} key={pet.id}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image={pet.img}
+          title="Pet"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {pet.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            {pet.age}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          Delete
         </Button>
         <Button size="small" color="primary">
           Learn More
         </Button>
       </CardActions>
-    </Card>
+    </Card>)
   );
 }
 // Home.defaultProps = {
