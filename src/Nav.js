@@ -4,12 +4,17 @@ import "./App.css";
 const Nav = () => {
   return (
     <nav>
-      <Link style={{ color: "white", textDecoration: "none"}} to="/"><div style={{ fontSize: "30px"}}>Home</div></Link>
+      <Link style={ navStyle} to="/"><div style={{ fontSize: "30px"}}>Home</div></Link>
       <ul className="nav-links">
-      <Link style={{ color: "white", textDecoration: "none"}} to="/about"><div style={{ fontSize: "30px"}}>About</div></Link>
+      <Link style={ navStyle } to="/about"><div style={{ fontSize: "30px"}}>About</div></Link>
       </ul>
     </nav>
   )
+}
+
+const navStyle = {
+  color: "white", 
+  textDecoration: "none"
 }
 
 export default Nav
