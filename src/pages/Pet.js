@@ -7,6 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Pet = ({pet}) => {
+const Pet = ({pet, onRemove, onFavorite }) => {
    const classes = useStyles();
 
   return (
@@ -38,11 +41,13 @@ const Pet = ({pet}) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() => onRemove(pet.id)}>
           Delete
         </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button>
+          <IconButton aria-label="add to favourites" color={`${pet.isFavorite ? "secondary" : "default"}`}  onClick={() => onFavorite(pet.id)}>
+            <FavoriteIcon />
+          </IconButton>
         </Button>
       </CardActions>
     </Card>
