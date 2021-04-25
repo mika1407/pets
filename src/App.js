@@ -22,7 +22,15 @@ function App() {
         img: "https://www.humanesociety.org/sites/default/files/styles/1441x612/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=MnaVHwPi",
         isFavorite: false,
       }
-    ])
+    ]);
+
+    const addPet = (pet) => {
+      console.log(pet);
+
+      const id = pets.length + 1;
+      const newPet = { id, ...pet}
+      setPets([...pets, newPet]);
+    }
 
     const removePet = (id) => {
       console.log("remobe pet", id);
@@ -40,7 +48,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" 
-          component={() => ([<AddPet />, <Home pets={pets} onRemove={removePet} onFavorite={isFavorite} />])}/>
+          component={() => [ <AddPet onAdd={addPet} />, <Home pets={pets} onRemove={removePet} onFavorite={isFavorite} />]}/>
           <Route path="/about" component={About}/>
         </Switch>
     </Router>
