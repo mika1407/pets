@@ -17,12 +17,12 @@ const AddPet = ({ onAdd }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState();
   const [url, setUrl] = useState("");
-  const [favorite, setFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    onAdd({name, age, url, favorite})
+    onAdd({name, age, url, isFavorite})
   }
 
   return (

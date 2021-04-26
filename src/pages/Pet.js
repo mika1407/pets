@@ -14,9 +14,14 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   media: {
     height: 200,
+    width: 250,
+    
+    margin: 3,
   },
 });
 
@@ -28,7 +33,7 @@ const Pet = ({pet, onRemove, onFavorite }) => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={pet.img}
+          image={pet.url}
           title="Pet"
         />
         <CardContent>
